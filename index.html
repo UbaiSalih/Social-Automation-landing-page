@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UGC Ad Builder</title>
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <!-- Background Elements -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <div id="app">
+    <!-- Hero Section -->
+    <header class="hero-section">
+      <div class="floating-thumbnails">
+        <div class="thumbnail t-tl"></div>
+        <div class="thumbnail t-tr"></div>
+        <div class="thumbnail t-bl"></div>
+        <div class="thumbnail t-br"></div>
+      </div>
+
+      <div class="container hero-content">
+        <div class="badge-wrapper">
+          <span class="badge">Powered by Gemini 3.0, n8n, NanoBanana, and Veo3.1</span>
+        </div>
+
+        <h1 class="hero-title">
+          Create <span class="text-gradient">UGC Ads</span><br />That Convert
+        </h1>
+
+        <p class="hero-subhead">
+          The AI-powered creative studio that turns your ideas into high-performing video ads in seconds.
+        </p>
+
+        <div class="stats-row">
+          <div class="stat-item"><strong>10x</strong> Faster Creation</div>
+          <span class="separator">·</span>
+          <div class="stat-item"><strong>95%</strong> Higher Engagement</div>
+          <span class="separator">·</span>
+          <div class="stat-item"><strong>50k+</strong> Ads Created</div>
+        </div>
+
+        <div class="cta-row">
+          <a href="#builder" class="btn btn-primary">Start Creating Free</a>
+          <a href="#samples" class="btn btn-secondary">View Examples</a>
+        </div>
+      </div>
+
+      <div class="scroll-indicator">
+        <span class="scroll-text">Scroll to Get Started</span>
+        <div class="mouse-icon"></div>
+      </div>
+    </header>
+
+    <!-- Showcase Section (New) -->
+    <section class="showcase-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Turn <span class="text-gradient">Products</span> into <span
+              class="text-gradient">Performers</span></h2>
+          <p class="section-desc">See how our AI transforms simple static images into engaging, high-conversion video
+            ads.</p>
+        </div>
+
+        <div class="demo-grid">
+          <!-- Demo 1 -->
+          <div class="demo-item">
+            <div class="demo-label">Input: Product Image</div>
+            <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=500&q=80"
+              alt="Robotics Kit" class="demo-img" />
+          </div>
+          <div class="demo-arrow">
+            ➔
+          </div>
+          <div class="demo-item">
+            <div class="demo-label">Output: Engaging Ad</div>
+            <div class="video-card">
+              <video class="video-cover" autoplay loop muted playsinline>
+                <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4"
+                  type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <div class="video-ui">
+                <div class="video-progress">
+                  <div class="video-bar" style="width: 65%"></div>
+                </div>
+                <div class="video-meta">
+                  <span>Cinematic Ad</span>
+                  <span>0:15 / 12:14</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Samples Grid (Updated visuals) -->
+    <section id="samples" class="samples-section">
+      <div class="container">
+        <h2 class="section-title">Recent Creations</h2>
+        <div class="samples-grid">
+          <!-- Sample 1 -->
+          <div class="sample-card">
+            <div class="card-image-wrapper">
+              <video class="sample-video" autoplay loop muted playsinline>
+                <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
+                  type="video/mp4">
+              </video>
+            </div>
+            <div class="card-info">
+              <h3>High-Action Promo</h3>
+              <p>Sports & Dynamic</p>
+            </div>
+          </div>
+          <!-- Sample 2 -->
+          <div class="sample-card">
+            <div class="card-image-wrapper">
+              <video class="sample-video" autoplay loop muted playsinline>
+                <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
+                  type="video/mp4">
+              </video>
+            </div>
+            <div class="card-info">
+              <h3>Sci-Fi Concept</h3>
+              <p>Abstract & Tech</p>
+            </div>
+          </div>
+          <!-- Sample 3 -->
+          <div class="sample-card">
+            <div class="card-image-wrapper">
+              <video class="sample-video" autoplay loop muted playsinline>
+                <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+                  type="video/mp4">
+              </video>
+            </div>
+            <div class="card-info">
+              <h3>Character Animation</h3>
+              <p>Creative Storytelling</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Builder Section -->
+    <section id="builder" class="builder-section">
+      <div class="container">
+        <h2 class="section-title">Ad Builder</h2>
+        <div class="builder-container">
+          <!-- Left: Upload -->
+          <div class="upload-area" id="uploadArea">
+            <div class="upload-placeholder">
+              <div class="upload-icon">📸</div>
+              <p>Upload Product Image</p>
+              <span class="upload-sub">Drag & drop or click to browse<br>(.png, .jpg, .jpeg)</span>
+            </div>
+            <input type="file" id="productImage" hidden accept=".png, .jpg, .jpeg" multiple required />
+            <div id="imagePreviewContainer" class="image-preview-grid hidden"></div>
+          </div>
+
+          <!-- Right: Controls -->
+          <div class="builder-controls">
+
+            <div class="form-group">
+              <label for="productTitle">Product Title (e.g., VEX V5, VEX IQ)</label>
+              <input type="text" id="productTitle" class="form-input" placeholder="Product Title (e.g., VEX V5, VEX IQ)"
+                value="VEX" required />
+            </div>
+
+            <div class="form-group">
+              <label for="arabicSubtitle">Arabic Subtitle</label>
+              <input type="text" id="arabicSubtitle" class="form-input" placeholder="Subtitle in Arabic" required />
+            </div>
+
+            <div class="form-group">
+              <label for="productLink">Product Link</label>
+              <input type="url" id="productLink" class="form-input" placeholder="https://" required />
+            </div>
+
+            <div class="form-group">
+              <label for="arabicLongDescription">Arabic Long Description</label>
+              <textarea id="arabicLongDescription" placeholder="Detailed description in Arabic..." required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="emailInput">Email Address</label>
+              <input type="email" id="emailInput" placeholder="name@company.com" class="form-input" required />
+            </div>
+
+            <button id="generateBtn" class="btn btn-primary full-width">Generate Ad</button>
+          </div>
+        </div>
+
+        <!-- Hidden Results / Success Area -->
+        <div id="successArea" class="success-area hidden">
+          <div class="success-content">
+            <div class="success-icon">✨</div>
+            <h3>Thank you for submitting your AI UGC ad.</h3>
+            <p>You’ll receive the video link at your email.</p>
+          </div>
+        </div>
+
+        <!-- Old Results Area (Removed as per new flow, or kept hidden if needed, but user asked to REPLACE form) -->
+      </div>
+    </section>
+  </div>
+  <script type="module" src="/main.js"></script>
+</body>
+
+</html>
