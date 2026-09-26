@@ -1,0 +1,125 @@
+<style>
+/* ---------- reel-specific layout (brand.css supplies the rest) ---------- */
+.stage{flex:1;position:relative;margin-top:10px}
+.scene{position:absolute;inset:0;display:flex;flex-direction:column}
+.foot{position:relative}
+.glow.tl{animation:drift1 8s ease-in-out infinite alternate}
+.glow.br{animation:drift2 9s ease-in-out infinite alternate}
+@keyframes drift1{to{transform:translate(260px,380px) scale(1.25)}}
+@keyframes drift2{to{transform:translate(-240px,-420px) scale(1.2)}}
+
+/* generic motion */
+.a{animation-duration:.55s;animation-fill-mode:both;animation-timing-function:cubic-bezier(.2,.9,.25,1.15)}
+.up{animation-name:up}.pop{animation-name:pop}.fade{animation-name:fade}.slideR{animation-name:slideR}
+@keyframes up{from{opacity:0;transform:translateY(50px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{opacity:0;transform:scale(.55)}70%{opacity:1;transform:scale(1.06)}100%{opacity:1;transform:scale(1)}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes fadeOut{to{opacity:0}}
+@keyframes slideR{from{opacity:0;transform:translateX(160px)}to{opacity:1;transform:none}}
+.exit{animation:sceneOut .45s ease-in both}
+@keyframes sceneOut{from{opacity:1;transform:none}to{opacity:0;transform:translateY(-60px) scale(.97)}}
+
+/* scene 1: notifications piling up */
+.notes{margin-top:34px;display:flex;flex-direction:column;gap:18px}
+.note{display:flex;align-items:center;gap:20px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);
+  border-radius:30px;padding:18px 24px;box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.note .ic{width:62px;height:62px;border-radius:18px;display:grid;place-items:center;font-family:Inter;font-weight:900;font-size:26px;flex-shrink:0}
+.note b{display:block;font-size:26px;color:var(--lav-3);line-height:1.2}
+.note p{font-size:31px;font-weight:700;line-height:1.3}
+.note time{margin-inline-start:auto;font-family:Inter;font-size:22px;color:var(--muted);direction:ltr}
+.ic.wa{background:#25D366;color:#063}.ic.ig{background:linear-gradient(135deg,#F58529,#DD2A7B,#8134AF)}
+.ic.fb{background:#1877F2}.ic.tt{background:#111;border:2px solid #25F4EE;box-shadow:inset -3px 0 0 #FE2C55}
+.shake{animation:shake .5s ease-in-out both}
+@keyframes shake{0%,100%{transform:none}20%{transform:rotate(-2deg)}40%{transform:rotate(2deg)}60%{transform:rotate(-1.5deg)}80%{transform:rotate(1deg)}}
+
+/* scene 2: chat */
+.outwrap{align-self:flex-end;position:relative;max-width:84%}
+.outwrap .m.out{max-width:100%}
+.typing{position:absolute;top:0;left:0;background:linear-gradient(135deg,var(--brand-2),var(--brand-3));border-radius:28px;border-top-left-radius:8px;
+  padding:22px 28px;display:flex;gap:10px;animation:typingShow .7s linear both}
+.typing i{width:14px;height:14px;border-radius:50%;background:#fff;opacity:.5;animation:dot .6s ease-in-out infinite alternate}
+.typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}
+@keyframes dot{to{opacity:1;transform:translateY(-8px)}}
+@keyframes typingShow{0%{opacity:0}10%{opacity:1}95%{opacity:1}100%{opacity:0}}
+.w{animation:fade .18s both}
+.speed{align-self:center;margin-top:22px;font-size:28px;font-weight:700;color:var(--yellow);display:flex;gap:10px;align-items:center}
+
+/* scene 3 */
+.chips span{font-size:30px}
+.big3{font-size:92px}
+
+/* scene 4: end card */
+.center .biglogo{animation:logoIn .8s cubic-bezier(.2,.9,.25,1.2) both}
+@keyframes logoIn{0%{opacity:0;transform:scale(.3) rotate(-25deg)}100%{opacity:1;transform:none}}
+.word{font-size:120px;font-weight:900;line-height:1}
+.pulse{animation:pulse 1.2s ease-in-out infinite alternate}
+@keyframes pulse{to{transform:scale(1.06);box-shadow:0 20px 70px rgba(255,214,0,.6)}}
+.bigurl{font-family:Inter;font-weight:800;font-size:52px;direction:ltr;unicode-bidi:isolate;color:#fff}
+</style>
+
+<section class="slide">
+  <div class="glow tl"></div><div class="glow br"></div>
+  <header><div class="brand"><img src="{{LOGO}}"><span>ناشر</span></div></header>
+
+  <div class="stage">
+    <!-- 1 · HOOK  0.0 – 3.4s -->
+    <div class="scene s1 exit" style="animation-delay:3.4s">
+      <div class="kicker a up" style="animation-delay:.1s">مشروعك ناجح… والرسائل لا تتوقف</div>
+      <h1 class="a up" style="animation-delay:.3s">عملاؤك يسألون<br><span class="hl">في كل مكان</span></h1>
+      <div class="notes">
+        <div class="note a slideR" style="animation-delay:.9s"><div class="ic wa">WA</div><div><b>ريم · واتساب</b><p>هل الفستان متوفر بمقاس M؟</p></div><time>14:32</time></div>
+        <div class="note a slideR" style="animation-delay:1.35s"><div class="ic ig">IG</div><div><b>سارة · إنستغرام</b><p>كم سعر الحقيبة البنية؟</p></div><time>14:32</time></div>
+        <div class="note a slideR" style="animation-delay:1.8s"><div class="ic fb">f</div><div><b>أحمد · فيسبوك</b><p>هل يوجد توصيل إلى البصرة؟</p></div><time>14:33</time></div>
+        <div class="note a slideR" style="animation-delay:2.25s"><div class="ic tt">♪</div><div><b>ليلى · تيك توك</b><p>متى تصل التشكيلة الجديدة؟</p></div><time>14:33</time></div>
+      </div>
+    </div>
+
+    <!-- 2 · PROOF  3.6 – 9.4s -->
+    <div class="scene s2 exit" style="animation-delay:9.4s">
+      <div class="kicker a up" style="animation-delay:3.6s">✦ ناشر يرد عنك فورًا</div>
+      <h2 class="a up" style="animation-delay:3.75s">بأسلوب مشروعك<br><span class="hl">وبلغة عميلك</span></h2>
+      <div class="card chat a up" style="animation-delay:3.9s">
+        <div class="top"><div class="av">ر</div><div><b>ريم</b><small>واتساب</small></div></div>
+        <div class="m in a pop" style="animation-delay:4.3s">مرحبًا، هل الفستان الأسود متوفر بمقاس M؟<em>14:32</em></div>
+        <div class="outwrap">
+          <div class="typing" style="animation-delay:4.8s"><i></i><i></i><i></i></div>
+          <div class="m out a pop" style="animation-delay:5.5s"><span class="ai">✦ رد تلقائي</span><span class="stream" data-start="5.75" data-step="0.14">أهلًا ريم! نعم، متوفر بمقاس M، والتوصيل خلال يومين. هل أُثبّت الطلب لك؟</span><em>14:32</em></div>
+        </div>
+        <div class="result a pop" style="animation-delay:7.9s"><span class="tick">✓</span><div><b>طلب جديد مؤكد</b><small>فستان أسود · مقاس M</small></div></div>
+      </div>
+    </div>
+
+    <!-- 3 · MESSAGE  9.6 – 12.6s -->
+    <div class="scene s3 exit" style="animation-delay:12.6s;justify-content:center">
+      <h1 class="big3 a up" style="animation-delay:9.6s">أنت تتقن عملك…</h1>
+      <h1 class="big3 a up" style="animation-delay:10.1s;margin-top:0"><span class="hl">وناشر يتقن الرد</span></h1>
+      <p class="sub a up" style="animation-delay:10.7s;margin-top:34px">كل رسائلك في صندوق واحد</p>
+      <div class="chips a up" style="animation-delay:11s;margin-top:24px">
+        <span>واتساب</span><span>إنستغرام</span><span>فيسبوك</span><span>تيك توك</span>
+      </div>
+    </div>
+
+    <!-- 4 · END CARD  12.8s → end -->
+    <div class="scene s4">
+      <div class="center">
+        <img class="biglogo" src="{{LOGO}}" style="animation-delay:12.8s">
+        <div class="word a up" style="animation-delay:13.2s">ناشر</div>
+        <p class="sub a up" style="animation-delay:13.5s;margin-top:0">ردود فورية تُسعد عملاءك<br>وتترك لك وقتًا لمشروعك</p>
+        <div class="a pop" style="animation-delay:14s"><span class="cta pulse" style="display:inline-block;font-size:46px;padding:20px 64px;animation-delay:14.5s">جرّب ناشر الآن</span></div>
+        <div class="bigurl a up" style="animation-delay:14.3s">www.nashir.ai</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot" style="animation:fade .5s .4s both, fadeOut .4s 12.8s forwards"><span class="url">www.nashir.ai</span><span class="small">أتمتة ذكية لمشروعك</span></div>
+</section>
+
+<script>
+// split streamed text into timed words (word-level keeps Arabic joining intact)
+document.querySelectorAll('.stream').forEach(el=>{
+  const s=+el.dataset.start, d=+el.dataset.step;
+  el.innerHTML=el.textContent.split(' ').map((w,i)=>`<span class="w" style="animation-delay:${(s+i*d).toFixed(2)}s">${w}</span>`).join(' ');
+});
+// scene 4 hides the small footer so URL isn't doubled
+window.seek=(t)=>{document.getAnimations().forEach(a=>{a.pause();a.currentTime=t*1000});};
+</script>
