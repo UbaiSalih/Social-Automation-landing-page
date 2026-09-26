@@ -47,6 +47,18 @@
 .okpill{margin-top:22px;align-self:flex-start;background:rgba(52,211,153,.16);border:1px solid rgba(110,231,168,.5);color:var(--ok-soft);
   font-size:30px;font-weight:800;padding:10px 28px;border-radius:999px}
 
+.fld{margin-top:14px}.fld label{display:block;font-size:24px;color:#8A7A6D;font-weight:700;margin-bottom:8px}
+.inp{border:2px solid #E3D9CC;border-radius:18px;padding:14px 20px;font-size:32px;font-weight:700;background:#fff}
+.url2{text-align:left;font-size:34px;color:#5B21B6;display:flex;align-items:center}
+.caret{display:inline-block;width:3px;height:38px;background:#5B21B6;margin-left:2px;animation:blink .8s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.addbtn{margin-top:18px;align-self:flex-start;display:inline-block;background:#D97757;color:#fff;font-weight:900;font-size:30px;padding:12px 40px;border-radius:16px}
+.win{display:flex;flex-direction:column}
+.subs{position:relative;height:118px;flex-shrink:0;margin-top:14px}
+.sb{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;font-size:38px;font-weight:800;line-height:1.35;
+  background:rgba(13,6,38,.72);border:1px solid rgba(196,181,253,.35);border-radius:26px;padding:10px 26px;opacity:0}
+@keyframes subIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes subOut{to{opacity:0;transform:translateY(-10px)}}
 /* chat mock */
 .cl{margin-top:30px;background:#FBF8F3;color:#2B1B12;border-radius:34px;padding:26px 28px;box-shadow:0 30px 80px rgba(0,0,0,.5);display:flex;flex-direction:column;gap:16px}
 .cl .bar{display:flex;align-items:center;gap:12px;font-family:Inter;font-weight:800;font-size:26px;color:#8A7A6D;direction:ltr;justify-content:flex-end;margin:0}
@@ -119,13 +131,14 @@
     <!-- 1 CONNECT -->
     <div class="scene">
       <div class="step a up" data-d=".1"><div class="n">1</div><span>اربط ناشر</span></div>
-      <h2 class="a up" data-d=".3">أضف موصّل ناشر<br><span class="hl">في Claude</span></h2>
+      <h2 class="a up" data-d=".3">أضف ناشر<br><span class="hl">كموصّل في Claude</span></h2>
       <div class="win a up" data-d=".9">
-        <div class="crumb">الإعدادات ← الموصّلات</div>
-        <div class="row"><div class="ic">G</div><div><b class="lat" style="text-align:right">Gmail</b><small>غير متصل</small></div><div class="tog" style="animation:none"><i style="animation:none"></i></div></div>
-        <div class="row"><img src="{{LOGO}}"><div><b>ناشر</b><small class="lat">nashir.ai</small></div><div class="tog" data-anim="2.6"><i data-anim="2.6"></i></div></div>
+        <div class="crumb">الإعدادات ← الموصّلات ← إضافة موصّل مخصّص</div>
+        <div class="fld"><label>الاسم</label><div class="inp">ناشر</div></div>
+        <div class="fld"><label>رابط الخادم</label><div class="inp lat url2"><span class="typeurl" data-s="1.2" data-step=".06">https://nashir.ai/api/mcp</span><i class="caret"></i></div></div>
+        <div class="addbtn a pop" data-d="3.4">إضافة</div>
       </div>
-      <div class="okpill a pop" data-d="3.2">✓ تم الربط</div>
+      <div class="okpill a pop" data-d="4.2">✓ تم الربط</div>
     </div>
 
     <!-- 2 ASK -->
@@ -192,6 +205,7 @@
     </div>
   </div>
 
+  <div class="subs" id="subs"></div>
   <div class="foot" id="foot"><span class="url">www.nashir.ai</span><span class="small">ناشر × <span class="lat">Claude</span></span></div>
 </section>
 
@@ -208,9 +222,19 @@ scenes.forEach((sc,i)=>{
     const b=s+ +el.dataset.s, st=+el.dataset.step;
     el.innerHTML=el.textContent.split(' ').map((w,j)=>`<span class="w" style="animation-delay:${(b+j*st).toFixed(2)}s">${w}</span>`).join(' ');
   });
+  sc.querySelectorAll('.typeurl').forEach(el=>{
+    const b=s+ +el.dataset.s, st=+el.dataset.step;
+    el.innerHTML=[...el.textContent].map((c,j)=>`<span class="w" style="animation-delay:${(b+j*st).toFixed(2)}s">${c}</span>`).join('');
+  });
   sc.querySelectorAll('[data-d]').forEach(el=>el.style.animationDelay=(s+ +el.dataset.d)+'s');
   sc.querySelectorAll('[data-anim]').forEach(el=>el.style.animationDelay=(s+ +el.dataset.anim)+'s');
 });
+const SUBS=[[[0.4, "صمّم منشورك وانشره على كل منصّاتك"], [5.0, "بمحادثة واحدة مع ناشر و Claude"]], [[0.4, "في إعدادات Claude ← الموصّلات"], [2.4, "أضف موصّلًا مخصّصًا برابط ناشر"]], [[0.4, "اطلب ما تريد بكلماتك"], [4.6, "مثلًا: كاروسيل من 3 شرائح عن عرض المطعم"]], [[0.4, "يصمّم Claude الشرائح فورًا"], [4.0, "مجانًا، بخط عربي دقيق وبألوان مشروعك"]], [[0.4, "ارفع التصاميم بنقرة داخل المحادثة"], [4.2, "راجع المعاينة: النص والصور والمنصّات"], [8.8, "اكتب «انشر»… ويبدأ النشر فورًا"]], [[0.4, "خلال ثوانٍ يصل منشورك إلى كل منصّاتك"]], []]; const box=document.getElementById('subs');
+SUBS.forEach((list,i)=>list.forEach(([d,txt],j)=>{
+  const t0=START[i]+d, t1=(j+1<list.length)?START[i]+list[j+1][0]:START[i+1]-0.3;
+  const el=document.createElement('div'); el.className='sb'; el.textContent=txt;
+  el.style.animation=`subIn .3s ${t0}s both, subOut .25s ${(t1-0.25).toFixed(2)}s forwards`; box.appendChild(el);
+}));
 const last=START[START.length-2];
 document.getElementById('foot').style.animation=`fade .5s .3s both, fadeOut .4s ${last}s forwards`;
 window.seek=(t)=>{document.getAnimations().forEach(a=>{a.pause();a.currentTime=t*1000});
