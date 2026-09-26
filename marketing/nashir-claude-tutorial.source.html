@@ -1,0 +1,219 @@
+<style>
+.stage{flex:1;position:relative;margin-top:6px}
+.scene{position:absolute;inset:0;display:flex;flex-direction:column;opacity:0}
+.glow.tl{animation:drift1 9s ease-in-out infinite alternate}
+.glow.br{animation:drift2 11s ease-in-out infinite alternate}
+@keyframes drift1{to{transform:translate(260px,380px) scale(1.25)}}
+@keyframes drift2{to{transform:translate(-240px,-420px) scale(1.2)}}
+.a{animation-duration:.55s;animation-fill-mode:both;animation-timing-function:cubic-bezier(.2,.9,.25,1.15)}
+.up{animation-name:up}.pop{animation-name:pop}.fade{animation-name:fade}.slideR{animation-name:slideR}.slideL{animation-name:slideL}
+@keyframes up{from{opacity:0;transform:translateY(50px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{opacity:0;transform:scale(.55)}70%{opacity:1;transform:scale(1.06)}100%{opacity:1;transform:scale(1)}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes slideR{from{opacity:0;transform:translateX(160px)}to{opacity:1;transform:none}}
+@keyframes slideL{from{opacity:0;transform:translateX(-160px)}to{opacity:1;transform:none}}
+@keyframes sceneIn{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+@keyframes sceneOut{from{opacity:1}to{opacity:0;transform:translateY(-50px) scale(.97)}}
+@keyframes fadeOut{to{opacity:0}}
+.lat{font-family:Inter;direction:ltr;unicode-bidi:isolate}
+
+/* step badge */
+.step{display:flex;align-items:center;gap:18px;margin-top:26px}
+.step .n{width:74px;height:74px;border-radius:22px;background:var(--yellow);color:var(--ink);display:grid;place-items:center;
+  font-family:Inter;font-weight:900;font-size:42px;box-shadow:0 14px 40px rgba(255,214,0,.35)}
+.step span{font-size:30px;font-weight:700;color:var(--lav-3)}
+.step+h2{margin-top:14px}
+
+/* hook */
+.duo{display:flex;align-items:center;gap:26px;margin-top:40px}
+.duo img{width:120px;height:120px;border-radius:34px;box-shadow:0 20px 60px rgba(124,58,237,.7)}
+.duo .x{font-family:Inter;font-size:56px;font-weight:300;color:var(--lav-3)}
+.claude{font-family:Inter;font-weight:800;font-size:54px;direction:ltr;padding:22px 40px;border-radius:34px;
+  background:#F4EDE4;color:#2B1B12;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.plats{display:flex;flex-wrap:wrap;gap:14px;margin-top:40px}
+.plats span{font-size:30px;font-weight:700;padding:10px 26px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22)}
+
+/* settings mock */
+.win{margin-top:34px;background:#FBF8F3;color:#2B1B12;border-radius:34px;padding:26px 30px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.win .crumb{font-size:26px;color:#8A7A6D;font-weight:700;margin-bottom:16px}
+.row{display:flex;align-items:center;gap:18px;padding:18px 6px;border-top:1px solid #E9E1D6}
+.row img,.row .ic{width:58px;height:58px;border-radius:16px;flex-shrink:0}
+.row .ic{background:#E9E1D6;display:grid;place-items:center;font-family:Inter;font-weight:800;color:#8A7A6D;font-size:24px}
+.row b{font-size:30px;display:block;line-height:1.2}.row small{font-size:22px;color:#8A7A6D}
+.tog{margin-inline-start:auto;width:96px;height:52px;border-radius:999px;background:#D9CFC3;position:relative;flex-shrink:0;animation:togBg .3s both}
+.tog i{position:absolute;top:6px;right:6px;width:40px;height:40px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.2);animation:togKnob .3s both}
+@keyframes togBg{to{background:var(--brand)}}
+@keyframes togKnob{to{right:50px}}
+.okpill{margin-top:22px;align-self:flex-start;background:rgba(52,211,153,.16);border:1px solid rgba(110,231,168,.5);color:var(--ok-soft);
+  font-size:30px;font-weight:800;padding:10px 28px;border-radius:999px}
+
+/* chat mock */
+.cl{margin-top:30px;background:#FBF8F3;color:#2B1B12;border-radius:34px;padding:26px 28px;box-shadow:0 30px 80px rgba(0,0,0,.5);display:flex;flex-direction:column;gap:16px}
+.cl .bar{display:flex;align-items:center;gap:12px;font-family:Inter;font-weight:800;font-size:26px;color:#8A7A6D;direction:ltr;justify-content:flex-end;margin:0}
+.cl .bar i{width:14px;height:14px;border-radius:50%;background:#D97757}
+.ub{align-self:flex-start;background:#EDE5DA;border-radius:28px;border-top-right-radius:8px;padding:18px 24px;font-size:32px;line-height:1.5;font-weight:600;max-width:92%}
+.cb{align-self:flex-end;font-size:28px;line-height:1.5;color:#4A3A2E;max-width:92%}
+.w{animation:fade .16s both}
+.composer{display:flex;align-items:center;gap:14px;border:2px solid #E3D9CC;border-radius:24px;padding:14px 20px;font-size:26px;color:#A89A8C}
+.composer .send{margin-inline-start:auto;width:48px;height:48px;border-radius:14px;background:#D97757;color:#fff;display:grid;place-items:center;font-family:Inter;font-weight:900}
+
+/* slides fan */
+.fan{position:relative;height:470px;margin-top:40px}
+.mini{position:absolute;top:0;width:272px;height:360px;border-radius:26px;padding:26px;display:flex;flex-direction:column;
+  box-shadow:0 30px 70px rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.2)}
+.mini .k{font-size:20px;font-weight:700;opacity:.8}
+.mini .t{font-size:34px;font-weight:900;line-height:1.2;margin-top:10px}
+.mini .big{font-family:Inter;font-weight:900;font-size:72px;color:var(--yellow);margin-top:auto;direction:ltr;text-align:right}
+.mini .em{font-size:76px;margin-top:auto;text-align:center}
+.mini .p{margin-top:auto;align-self:flex-start;background:var(--yellow);color:var(--ink);font-weight:900;font-size:26px;padding:8px 24px;border-radius:999px}
+.mini .demo{font-size:16px;opacity:.7;margin-top:8px}
+.m1{right:0;background:linear-gradient(160deg,#B45309,#7C2D12);transform:rotate(4deg)}
+.m2{right:294px;top:40px;background:linear-gradient(160deg,#7C3AED,#3B0764);z-index:2}
+.m3{right:588px;top:10px;background:linear-gradient(160deg,#0F766E,#134E4A);transform:rotate(-4deg)}
+.tags{display:flex;flex-wrap:wrap;gap:12px}
+.tags span{font-size:28px;font-weight:800;padding:8px 24px;border-radius:999px;background:rgba(255,214,0,.14);border:1px solid rgba(255,214,0,.45);color:var(--yellow-2)}
+
+/* preview */
+.pv{margin-top:26px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:34px;padding:24px 28px;display:flex;flex-direction:column;gap:14px}
+.pv .h{font-size:24px;font-weight:800;color:var(--lav-3);letter-spacing:1px}
+.pv .l{display:flex;justify-content:space-between;font-size:29px;font-weight:600;border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:10px}
+.pv .l em{font-style:normal;color:var(--lav-2)}
+.thumbs{display:flex;gap:10px}.thumbs i{width:70px;height:88px;border-radius:12px;display:block}
+.say{align-self:flex-start;margin-top:22px;font-size:44px;font-weight:900;background:linear-gradient(135deg,var(--brand-2),var(--brand-3));padding:16px 48px;border-radius:30px;border-top-right-radius:8px;box-shadow:0 16px 50px rgba(124,58,237,.6)}
+
+/* result */
+.res{margin-top:30px;display:flex;flex-direction:column;gap:16px}
+.res .r{display:flex;align-items:center;gap:20px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:26px;padding:16px 22px}
+.res .ic{width:58px;height:58px;border-radius:16px;display:grid;place-items:center;font-family:Inter;font-weight:900;font-size:24px;flex-shrink:0}
+.res b{font-size:32px}.res .tick{margin-inline-start:auto;width:48px;height:48px;border-radius:50%;background:var(--ok);color:#062;display:grid;place-items:center;font-family:Inter;font-weight:900;font-size:26px}
+.ic.wa{background:#25D366;color:#063}.ic.ig{background:linear-gradient(135deg,#F58529,#DD2A7B,#8134AF)}.ic.fb{background:#1877F2}
+.ic.tt{background:#111;border:2px solid #25F4EE}.ic.li{background:#0A66C2}.ic.yt{background:#FF0033}
+
+.center .biglogo{width:170px;height:170px;border-radius:46px;box-shadow:0 30px 90px rgba(124,58,237,.8)}
+.word{font-size:120px;font-weight:900;line-height:1}
+.pulse{animation:pulse 1.2s ease-in-out infinite alternate}
+@keyframes pulse{to{transform:scale(1.06);box-shadow:0 20px 70px rgba(255,214,0,.6)}}
+.bigurl{font-family:Inter;font-weight:800;font-size:52px;direction:ltr;unicode-bidi:isolate}
+</style>
+
+<section class="slide">
+  <div class="glow tl"></div><div class="glow br"></div>
+  <header><div class="brand"><img src="{{LOGO}}"><span>ناشر</span></div><span class="count lat" id="cnt"></span></header>
+
+  <div class="stage">
+    <!-- 0 HOOK -->
+    <div class="scene">
+      <div class="kicker a up" data-d=".2">دليل سريع · أقل من دقيقة</div>
+      <h1 class="a up" data-d=".5" style="font-size:78px">صمّم منشورك وانشره<br><span class="hl">بمحادثة واحدة</span></h1>
+      <div class="duo">
+        <img class="a pop" data-d="1.4" src="{{LOGO}}">
+        <span class="x a fade" data-d="1.8">×</span>
+        <span class="claude a pop" data-d="2.1">Claude</span>
+      </div>
+      <div class="plats">
+        <span class="a up" data-d="5.0">فيسبوك</span><span class="a up" data-d="5.25">إنستغرام</span><span class="a up" data-d="5.5">لينكدإن</span>
+        <span class="a up" data-d="5.75">تيك توك</span><span class="a up" data-d="6.0">يوتيوب</span>
+      </div>
+    </div>
+
+    <!-- 1 CONNECT -->
+    <div class="scene">
+      <div class="step a up" data-d=".1"><div class="n">1</div><span>اربط ناشر</span></div>
+      <h2 class="a up" data-d=".3">أضف موصّل ناشر<br><span class="hl">في Claude</span></h2>
+      <div class="win a up" data-d=".9">
+        <div class="crumb">الإعدادات ← الموصّلات</div>
+        <div class="row"><div class="ic">G</div><div><b class="lat" style="text-align:right">Gmail</b><small>غير متصل</small></div><div class="tog" style="animation:none"><i style="animation:none"></i></div></div>
+        <div class="row"><img src="{{LOGO}}"><div><b>ناشر</b><small class="lat">nashir.ai</small></div><div class="tog" data-anim="2.6"><i data-anim="2.6"></i></div></div>
+      </div>
+      <div class="okpill a pop" data-d="3.2">✓ تم الربط</div>
+    </div>
+
+    <!-- 2 ASK -->
+    <div class="scene">
+      <div class="step a up" data-d=".1"><div class="n">2</div><span>اطلب بكلماتك</span></div>
+      <h2 class="a up" data-d=".3">اكتب طلبك<br><span class="hl">كما تقوله لزميلك</span></h2>
+      <div class="cl a up" data-d=".8">
+        <div class="bar">Claude <i></i></div>
+        <div class="ub"><span class="stream" data-s="1.6" data-step=".32">صمّم لي كاروسيل من 3 شرائح عن عرض المطعم، وانشره على إنستغرام وفيسبوك</span></div>
+        <div class="cb a fade" data-d="7.6">بكل سرور! سأصمّم الشرائح الآن ✦</div>
+        <div class="composer">اكتب رسالة…<span class="send">↑</span></div>
+      </div>
+    </div>
+
+    <!-- 3 DESIGN -->
+    <div class="scene">
+      <div class="step a up" data-d=".1"><div class="n">3</div><span>التصميم</span></div>
+      <h2 class="a up" data-d=".3">يصمّم Claude الشرائح<br><span class="hl">مجانًا وفورًا</span></h2>
+      <div class="fan">
+        <div class="mini m1 a slideL" data-d="1.0"><div class="k">مطعم الورد</div><div class="t">عرض الغداء</div><div class="big">-20%</div><div class="demo">مثال توضيحي</div></div>
+        <div class="mini m2 a pop" data-d="1.5"><div class="k">طبق اليوم</div><div class="t">مندي الدجاج<br>مع السلطة</div><div class="em">🍽️</div></div>
+        <div class="mini m3 a slideR" data-d="2.0"><div class="k">لا تفوّت العرض</div><div class="t">احجز طاولتك<br>اليوم</div><div class="p">احجز الآن</div></div>
+      </div>
+      <div class="tags">
+        <span class="a pop" data-d="3.6">بدون رصيد</span><span class="a pop" data-d="4.6">خط عربي دقيق</span><span class="a pop" data-d="5.8">بألوان مشروعك</span>
+      </div>
+    </div>
+
+    <!-- 4 REVIEW + PUBLISH -->
+    <div class="scene">
+      <div class="step a up" data-d=".1"><div class="n">4</div><span>راجع ثم انشر</span></div>
+      <h2 class="a up" data-d=".3">معاينة كاملة<br><span class="hl">قبل أي نشر</span></h2>
+      <div class="pv a up" data-d="3.2">
+        <div class="h">معاينة المنشور</div>
+        <div class="l"><span>النوع</span><em>كاروسيل · 3 صور</em></div>
+        <div class="l"><span>المنصات</span><em>إنستغرام، فيسبوك</em></div>
+        <div class="l" style="border:0"><span>الصور</span><div class="thumbs"><i style="background:linear-gradient(160deg,#B45309,#7C2D12)"></i><i style="background:linear-gradient(160deg,#7C3AED,#3B0764)"></i><i style="background:linear-gradient(160deg,#0F766E,#134E4A)"></i></div></div>
+      </div>
+      <div class="say a pop" data-d="9.2">انشر ✓</div>
+    </div>
+
+    <!-- 5 RESULT -->
+    <div class="scene">
+      <div class="kicker a up" data-d=".1">خلال ثوانٍ</div>
+      <h2 class="a up" data-d=".3">منشورك على<br><span class="hl">كل منصّاتك</span></h2>
+      <div class="res">
+        <div class="r a slideR" data-d="1.0"><div class="ic fb">f</div><b>فيسبوك</b><span class="tick">✓</span></div>
+        <div class="r a slideR" data-d="1.6"><div class="ic ig">IG</div><b>إنستغرام</b><span class="tick">✓</span></div>
+        <div class="r a slideR" data-d="2.2"><div class="ic li">in</div><b>لينكدإن</b><span class="tick">✓</span></div>
+        <div class="r a slideR" data-d="2.8"><div class="ic tt">♪</div><b>تيك توك</b><span class="tick">✓</span></div>
+        <div class="r a slideR" data-d="3.4"><div class="ic yt">▶</div><b>يوتيوب</b><span class="tick">✓</span></div>
+      </div>
+    </div>
+
+    <!-- 6 CTA -->
+    <div class="scene">
+      <div class="center">
+        <img class="biglogo a pop" data-d=".1" src="{{LOGO}}">
+        <div class="word a up" data-d=".5">ناشر</div>
+        <p class="sub a up" data-d=".8" style="margin-top:0">صمّم وانشر من محادثة واحدة<br>مع <span class="lat">Claude</span></p>
+        <div class="a pop" data-d="1.3"><span class="cta pulse" style="display:inline-block;font-size:46px;padding:20px 64px">جرّب ناشر الآن</span></div>
+        <div class="bigurl a up" data-d="1.6">www.nashir.ai</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot" id="foot"><span class="url">www.nashir.ai</span><span class="small">ناشر × <span class="lat">Claude</span></span></div>
+</section>
+
+<script>
+const START = window.SCENE_STARTS;           // injected: scene start times (s)
+const END = window.TOTAL;
+const scenes=[...document.querySelectorAll('.scene')];
+scenes.forEach((sc,i)=>{
+  const s=START[i], e=START[i+1];
+  sc.style.animation = i===scenes.length-1
+    ? `sceneIn .5s ${s}s both`
+    : `sceneIn .5s ${s}s both, sceneOut .4s ${(e-0.4).toFixed(2)}s forwards`;
+  sc.querySelectorAll('.stream').forEach(el=>{
+    const b=s+ +el.dataset.s, st=+el.dataset.step;
+    el.innerHTML=el.textContent.split(' ').map((w,j)=>`<span class="w" style="animation-delay:${(b+j*st).toFixed(2)}s">${w}</span>`).join(' ');
+  });
+  sc.querySelectorAll('[data-d]').forEach(el=>el.style.animationDelay=(s+ +el.dataset.d)+'s');
+  sc.querySelectorAll('[data-anim]').forEach(el=>el.style.animationDelay=(s+ +el.dataset.anim)+'s');
+});
+const last=START[START.length-2];
+document.getElementById('foot').style.animation=`fade .5s .3s both, fadeOut .4s ${last}s forwards`;
+window.seek=(t)=>{document.getAnimations().forEach(a=>{a.pause();a.currentTime=t*1000});
+  const i=START.filter(x=>x<=t).length-1; const c=document.getElementById('cnt');
+  c.innerHTML = (i>=1&&i<=4)?`<b>${i}</b> / 4`:'';};
+</script>
