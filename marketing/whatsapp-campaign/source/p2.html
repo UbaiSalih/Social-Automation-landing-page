@@ -1,0 +1,102 @@
+<script>window.SCENE_STARTS=[0,4.2,9.0,13.8,19.0,24.5];</script>
+<style>
+.bizrow{display:flex;align-items:center;gap:16px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.1)}
+.bizrow b{font-size:30px;display:block;line-height:1.2}.bizrow small{font-size:22px;color:#6EE7A8}
+.tpl{align-self:flex-start;max-width:92%;background:rgba(255,255,255,.12);border-radius:28px;border-top-right-radius:8px;padding:12px 12px 14px}
+.tpl .img{height:200px;border-radius:20px;display:grid;place-items:center;font-size:90px;margin-bottom:12px}
+.tpl .img.s{height:150px;font-size:70px}
+.tpl p{font-size:29px;line-height:1.45;padding:0 10px}
+.tpl em{display:block;font-style:normal;font-family:Inter;font-size:20px;opacity:.7;text-align:left;direction:ltr;padding:0 10px}
+.tpl .btn{margin-top:10px;border-top:1px solid rgba(255,255,255,.14);padding-top:12px;text-align:center;font-size:27px;font-weight:800;color:#7FD8FF}
+.g1{background:linear-gradient(135deg,#F9A8D4,#DB2777)}.g2{background:linear-gradient(135deg,#FDBA74,#C2410C)}
+.g3{background:linear-gradient(135deg,#67E8F9,#0E7490)}.g4{background:linear-gradient(135deg,#FDE047,#CA8A04)}
+.ok-tag{font-size:22px;font-weight:800;color:var(--ok-soft);background:rgba(52,211,153,.15);border:1px solid rgba(110,231,168,.45);padding:4px 16px;border-radius:999px}
+.opt{display:flex;align-items:center;gap:16px;padding:14px 18px;border-radius:20px;border:1px solid rgba(255,255,255,.14);font-size:29px;font-weight:700;margin-top:10px}
+.opt i{width:34px;height:34px;border-radius:50%;border:3px solid var(--lav-3);flex-shrink:0;display:grid;place-items:center;font-style:normal;font-family:Inter;font-size:20px;font-weight:900}
+.opt.on{background:rgba(124,58,237,.35);border-color:var(--brand-2)}.opt.on i{background:var(--yellow);border-color:var(--yellow);color:var(--ink)}
+.opt small{margin-inline-start:auto;font-size:22px;color:var(--muted);font-weight:600}
+.var{background:rgba(255,214,0,.2);color:var(--yellow-2);border-radius:8px;padding:0 8px;font-family:Inter;font-weight:800;direction:ltr;unicode-bidi:isolate}
+.arrow{text-align:center;font-size:40px;color:var(--lav-3);margin:6px 0}
+.rates{display:flex;gap:12px;margin-top:14px}
+.rates div{flex:1;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:12px;text-align:center}
+.rates b{display:block;font-family:Inter;font-size:40px;font-weight:900;color:var(--yellow)}.rates span{font-size:22px;color:var(--lav-2)}
+.fail{margin-top:14px;font-size:24px;color:#FCA5A5;background:rgba(248,113,113,.12);border:1px solid rgba(248,113,113,.35);border-radius:16px;padding:10px 16px}
+.note{font-size:22px;color:var(--muted);line-height:1.5;max-width:760px}
+.bar label{width:110px}
+.slide>header+.kicker{margin-top:auto!important}
+.lat{font-family:Inter;direction:ltr;unicode-bidi:isolate}
+</style>
+<style>
+.stage{flex:1;position:relative;margin-top:6px}
+.scene{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;opacity:0}
+.glow.tl{animation:drift1 9s ease-in-out infinite alternate}.glow.br{animation:drift2 11s ease-in-out infinite alternate}
+@keyframes drift1{to{transform:translate(260px,380px) scale(1.25)}}@keyframes drift2{to{transform:translate(-240px,-420px) scale(1.2)}}
+.a{animation-duration:.55s;animation-fill-mode:both;animation-timing-function:cubic-bezier(.2,.9,.25,1.15)}
+.up{animation-name:up}.pop{animation-name:pop}.fade{animation-name:fade}.slideR{animation-name:slideR}
+@keyframes up{from{opacity:0;transform:translateY(50px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{opacity:0;transform:scale(.55)}70%{opacity:1;transform:scale(1.06)}100%{opacity:1;transform:scale(1)}}
+@keyframes fade{from{opacity:0}to{opacity:1}}@keyframes fadeOut{to{opacity:0}}
+@keyframes slideR{from{opacity:0;transform:translateX(160px)}to{opacity:1;transform:none}}
+@keyframes sceneIn{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+@keyframes sceneOut{from{opacity:1}to{opacity:0;transform:translateY(-50px) scale(.97)}}
+.grow{animation:grow 1s cubic-bezier(.2,.8,.2,1) both}@keyframes grow{from{width:0}}
+.selon{animation:selon .35s both}@keyframes selon{to{background:rgba(124,58,237,.35);border-color:var(--brand-2)}}
+.selon i{animation:seli .35s both;animation-delay:inherit}@keyframes seli{to{background:var(--yellow);border-color:var(--yellow);color:var(--ink)}}
+.step{display:flex;align-items:center;gap:18px}
+.step .n{width:70px;height:70px;border-radius:22px;background:var(--yellow);color:var(--ink);display:grid;place-items:center;font-family:Inter;font-weight:900;font-size:40px}
+.step span{font-size:30px;font-weight:700;color:var(--lav-3)}
+.center .biglogo{width:170px;height:170px;border-radius:46px;box-shadow:0 30px 90px rgba(124,58,237,.8)}
+.word{font-size:120px;font-weight:900;line-height:1}
+.pulse{animation:pulse 1.2s ease-in-out infinite alternate}@keyframes pulse{to{transform:scale(1.06);box-shadow:0 20px 70px rgba(255,214,0,.6)}}
+.bigurl{font-family:Inter;font-weight:800;font-size:52px;direction:ltr;unicode-bidi:isolate}
+.pill3{display:flex;flex-direction:column;gap:18px;margin-top:34px}
+.pill3 div{display:flex;align-items:center;gap:20px;font-size:40px;font-weight:800;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:26px;padding:20px 26px}
+.pill3 i{font-style:normal;font-size:44px}
+</style>
+<section class="slide"><div class="glow tl"></div><div class="glow br"></div><header><div class="brand"><img src="{{LOGO}}"><span>ناشر</span></div></header><div class="stage">
+<div class="scene">
+  <div class="kicker a up" data-d=".2">حملات واتساب في ناشر</div>
+  <h1 class="a up" data-d=".5" style="font-size:76px">حملة واتساب لعملائك<br><span class="hl">من مكان واحد</span></h1>
+  <p class="sub a up" data-d="1.2">بدون قوائم بث يدوية، وبدون نسخ ولصق</p>
+</div>
+<div class="scene">
+  <div class="step a up" data-d=".1"><div class="n">1</div><span>الجمهور</span></div>
+  <h2 class="a up" data-d=".3">اختر <span class="hl">جمهورك</span></h2>
+  <div class="card a up" data-d=".7" style="padding-top:14px">
+    <div class="opt"><i></i>كل العملاء</div>
+    <div class="opt selon" data-d="2.0"><i>✓</i>وسم: عملاء VIP</div>
+    <div class="opt"><i></i>شريحة ذكية بشروط</div>
+  </div>
+</div>
+<div class="scene">
+  <div class="step a up" data-d=".1"><div class="n">2</div><span>القالب</span></div>
+  <h2 class="a up" data-d=".3">اختر قالبك <span class="hl">المعتمد</span></h2>
+  <div class="card chat a up" data-d=".7">
+    <div style="display:flex;justify-content:flex-end"><span class="ok-tag a pop" data-d="2.2">✓ معتمد من Meta</span></div>
+    <div class="tpl a pop" data-d="1.2"><div class="img s g1">👗</div><p>وصلت التشكيلة الجديدة، تصفّحها الآن</p><div class="btn">تصفّح الآن ↗</div></div>
+  </div>
+</div>
+<div class="scene">
+  <div class="step a up" data-d=".1"><div class="n">3</div><span>الإرسال والتقرير</span></div>
+  <h2 class="a up" data-d=".3">أرسل… <span class="hl">وتابع التقرير</span></h2>
+  <div class="card a up" data-d=".7">
+    <div style="display:flex;justify-content:flex-end;margin-bottom:6px"><span class="tag-demo">مثال توضيحي</span></div>
+    <div class="bar"><label>وصلت</label><div class="track"><i class="grow" data-d="1.2" style="width:96%"></i></div><em>480</em></div>
+    <div class="bar"><label>قُرئت</label><div class="track"><i class="grow" data-d="1.6" style="width:78%"></i></div><em>390</em></div>
+    <div class="bar"><label>ردّ</label><div class="track"><i class="grow" data-d="2.0" style="width:15%"></i></div><em>72</em></div>
+  </div>
+</div>
+<div class="scene"><div class="center">
+<img class="biglogo a pop" data-d=".1" src="{{LOGO}}"><div class="word a up" data-d=".5">ناشر</div>
+<p class="sub a up" data-d=".8" style="margin-top:0">حملات واتساب لعملائك<br>من مكان واحد</p>
+<div class="a pop" data-d="1.2"><span class="cta pulse" style="display:inline-block;font-size:46px;padding:20px 64px">جرّب ناشر الآن</span></div>
+<div class="bigurl a up" data-d="1.5">www.nashir.ai</div></div></div>
+</div><div class="foot" id="foot"><span class="url">www.nashir.ai</span><span class="small">حملات واتساب</span></div></section>
+<script>
+const START=window.SCENE_STARTS; const scenes=[...document.querySelectorAll('.scene')];
+scenes.forEach((sc,i)=>{const s=START[i],e=START[i+1];
+  sc.style.animation=i===scenes.length-1?`sceneIn .5s ${s}s both`:`sceneIn .5s ${s}s both, sceneOut .4s ${(e-0.4).toFixed(2)}s forwards`;
+  sc.querySelectorAll('[data-d]').forEach(el=>el.style.animationDelay=(s+ +el.dataset.d)+'s');});
+const foot=document.getElementById('foot'); if(foot) foot.style.animation=`fade .5s .3s both, fadeOut .4s ${START[START.length-2]}s forwards`;
+window.seek=t=>document.getAnimations().forEach(a=>{a.pause();a.currentTime=t*1000});
+</script>

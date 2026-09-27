@@ -1,0 +1,27 @@
+<style>
+.stage{flex:1;position:relative;margin-top:6px}
+.scene{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;opacity:0}
+.glow.tl{animation:drift1 9s ease-in-out infinite alternate}.glow.br{animation:drift2 11s ease-in-out infinite alternate}
+@keyframes drift1{to{transform:translate(260px,380px) scale(1.25)}}@keyframes drift2{to{transform:translate(-240px,-420px) scale(1.2)}}
+.a{animation-duration:.55s;animation-fill-mode:both;animation-timing-function:cubic-bezier(.2,.9,.25,1.15)}
+.up{animation-name:up}.pop{animation-name:pop}.fade{animation-name:fade}.slideR{animation-name:slideR}
+@keyframes up{from{opacity:0;transform:translateY(50px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{opacity:0;transform:scale(.55)}70%{opacity:1;transform:scale(1.06)}100%{opacity:1;transform:scale(1)}}
+@keyframes fade{from{opacity:0}to{opacity:1}}@keyframes fadeOut{to{opacity:0}}
+@keyframes slideR{from{opacity:0;transform:translateX(160px)}to{opacity:1;transform:none}}
+@keyframes sceneIn{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+@keyframes sceneOut{from{opacity:1}to{opacity:0;transform:translateY(-50px) scale(.97)}}
+.grow{animation:grow 1s cubic-bezier(.2,.8,.2,1) both}@keyframes grow{from{width:0!important}}
+.selon{animation:selon .35s both}@keyframes selon{to{background:rgba(124,58,237,.35);border-color:var(--brand-2)}}
+.selon i{animation:seli .35s both;animation-delay:inherit}@keyframes seli{to{background:var(--yellow);border-color:var(--yellow);color:var(--ink)}}
+.step{display:flex;align-items:center;gap:18px}
+.step .n{width:70px;height:70px;border-radius:22px;background:var(--yellow);color:var(--ink);display:grid;place-items:center;font-family:Inter;font-weight:900;font-size:40px}
+.step span{font-size:30px;font-weight:700;color:var(--lav-3)}
+.center .biglogo{width:170px;height:170px;border-radius:46px;box-shadow:0 30px 90px rgba(124,58,237,.8)}
+.word{font-size:120px;font-weight:900;line-height:1}
+.pulse{animation:pulse 1.2s ease-in-out infinite alternate}@keyframes pulse{to{transform:scale(1.06);box-shadow:0 20px 70px rgba(255,214,0,.6)}}
+.bigurl{font-family:Inter;font-weight:800;font-size:52px;direction:ltr;unicode-bidi:isolate}
+.pill3{display:flex;flex-direction:column;gap:18px;margin-top:34px}
+.pill3 div{display:flex;align-items:center;gap:20px;font-size:40px;font-weight:800;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:26px;padding:20px 26px}
+.pill3 i{font-style:normal;font-size:44px}
+</style>
