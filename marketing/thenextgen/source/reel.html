@@ -1,0 +1,86 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><style>
+@font-face{font-family:Cairo;src:url(Cairo.ttf)}@font-face{font-family:Inter;src:url(Inter.ttf)}
+:root{--blue:#3C82FE;--green:#29D88D;--yellow:#FAD900;--ink:#06122B}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;width:1080px;height:1920px;overflow:hidden;font-family:Cairo,sans-serif}
+#v{position:relative;width:1080px;height:1920px;overflow:hidden;background:var(--ink)}
+.sc{position:absolute;inset:0;opacity:0;overflow:hidden}
+.ph{position:absolute;inset:-4%;background-repeat:no-repeat;background-size:auto 108%}
+.scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,18,43,.15) 0%,rgba(6,18,43,.05) 35%,rgba(6,18,43,.72) 62%,rgba(6,18,43,.94) 100%)}
+.cap{position:absolute;left:70px;right:70px;top:1080px;text-align:center;color:#fff}
+.cap h{display:block;white-space:nowrap;font-weight:900;font-size:70px;line-height:1.3;text-shadow:0 6px 30px rgba(0,0,0,.45)}
+.cap .hl{color:var(--yellow)}.cap .gr{color:var(--green)}
+.bar{display:block;margin:28px auto 0;height:8px;width:180px;border-radius:8px;background:linear-gradient(90deg,var(--yellow),var(--green),var(--blue));transform-origin:center}
+.w{display:inline-block;opacity:0}
+/* brand dots grid */
+.grid{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(60,130,254,.55) 3px,transparent 4px);background-size:48px 48px}
+.glow{position:absolute;border-radius:50%;filter:blur(120px)}
+.rays{position:absolute;left:50%;top:-200px;width:1600px;height:2400px;margin-left:-800px;
+  background:conic-gradient(from 180deg at 50% 0%,transparent 0deg,rgba(250,217,0,.22) 8deg,transparent 16deg,transparent 30deg,rgba(60,130,254,.25) 38deg,transparent 46deg,transparent 60deg,rgba(41,216,141,.2) 68deg,transparent 76deg,transparent 284deg,rgba(41,216,141,.2) 292deg,transparent 300deg,transparent 314deg,rgba(60,130,254,.25) 322deg,transparent 330deg,transparent 344deg,rgba(250,217,0,.22) 352deg,transparent 360deg)}
+.logo{position:absolute;left:50%;top:430px;width:640px;margin-left:-320px}
+.card{position:absolute;inset:0;background:radial-gradient(90% 60% at 50% 30%,#10306B 0%,#081A3D 55%,#040C1F 100%)}
+.contact{position:absolute;left:0;right:0;top:1330px;text-align:center;color:#fff}
+.contact .u{font-family:Inter,Arial,sans-serif;font-weight:800;font-size:56px;direction:ltr;unicode-bidi:isolate;letter-spacing:1px}
+.contact .p{margin-top:18px;display:inline-block;direction:ltr;unicode-bidi:isolate;font-weight:900;font-size:50px;color:var(--ink);background:var(--yellow);padding:10px 44px;border-radius:999px}
+.flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none}
+</style></head><body><div id="v">
+
+<!-- S1 intro -->
+<div class="sc" id="s1" style="background:radial-gradient(80% 55% at 50% 40%,#0E2A63,#050E24)">
+  <div class="grid" id="g1"></div>
+  <div class="glow" style="width:700px;height:700px;left:-150px;top:200px;background:var(--blue);opacity:.45"></div>
+  <div class="glow" style="width:600px;height:600px;right:-200px;top:1100px;background:var(--green);opacity:.25"></div>
+  <div class="cap" style="top:760px"><h class="L">كل بطل عالمي…</h><h class="L"><span class="hl">بدأ من صفّ مدرسي</span></h><i class="bar"></i></div>
+</div>
+
+<!-- S2 carry -->
+<div class="sc" id="s2"><div class="ph" style="background-image:url(p_carry.jpg);background-position:34% 50%"></div><div class="scrim"></div>
+  <div class="cap"><h class="L">عامًا بعد عام…</h><h class="L">تكبر المهارة <span class="gr">ويكبر الروبوت</span></h><i class="bar"></i></div></div>
+
+<!-- S3 robot -->
+<div class="sc" id="s3"><div class="ph" style="background-image:url(p_robot.jpg);background-position:47% 50%"></div><div class="scrim"></div>
+  <div class="cap"><h class="L">يتعثّر… يُصلح…</h><h class="L"><span class="hl">ويحاول من جديد</span></h><i class="bar"></i></div></div>
+
+<!-- S4 match + team -->
+<div class="sc" id="s4"><div class="ph" id="p4a" style="background-image:url(p_match.jpg);background-position:42% 50%"></div>
+  <div class="ph" id="p4b" style="background-image:url(p_team.jpg);background-position:55% 50%;opacity:0"></div><div class="scrim"></div>
+  <div class="cap"><h class="L">حتى يعتلي منصّة</h><h class="L">البطولة الوطنية <span class="hl">في العراق</span></h><i class="bar"></i></div></div>
+
+<!-- S5 world -->
+<div class="sc" id="s5" style="background:radial-gradient(70% 50% at 50% 20%,#123A86,#050E24)">
+  <div class="rays" id="rays"></div>
+  <div class="grid" style="opacity:.35"></div>
+  <div class="cap" style="top:820px"><h class="L">ومنها…</h><h class="L" style="font-size:96px"><span class="hl">إلى بطولة العالم</span></h><i class="bar"></i></div></div>
+
+<!-- S6 end card -->
+<div class="sc" id="s6"><div class="card"></div><div class="grid" style="opacity:.18"></div>
+  <img class="logo" id="logo" src="logo.png">
+  <div class="cap" style="top:1080px"><h class="L" style="font-size:72px">الرحلة تبدأ <span class="hl">من صفّكم</span></h></div>
+  <div class="contact"><div class="u" id="u">thenextgen.ai</div><div class="p" id="ph">07704 379 379</div></div></div>
+
+<div class="flash" id="flash"></div>
+</div>
+<script>
+// timeline (seconds)
+const S=[['s1',0,5.2],['s2',5,10.2],['s3',10,15.2],['s4',15,21.2],['s5',21,25.4],['s6',25.2,31.5]];
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x)), ease=t=>1-Math.pow(1-t,3), io=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+// split caption lines into words once
+document.querySelectorAll('.L').forEach(h=>{const walk=n=>{[...n.childNodes].forEach(c=>{if(c.nodeType===3){const f=document.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(p=>{if(p.trim()){const s=document.createElement('span');s.className='w';s.textContent=p;f.appendChild(s)}else f.appendChild(document.createTextNode(p))});c.replaceWith(f)}else walk(c)})};walk(h)});
+window.seek=t=>{
+  S.forEach(([id,a,b])=>{
+    const el=document.getElementById(id), fi=clamp((t-a)/0.5,0,1), fo=id==='s6'?1:clamp((b-t)/0.5,0,1);
+    el.style.opacity=Math.min(fi,fo); if(el.style.opacity==0) return;
+    const p=clamp((t-a)/(b-a),0,1);
+    const ph=el.querySelector('.ph'); if(ph){ph.style.transform=`scale(${1+0.10*p}) translateX(${(id==='s2'?-1:1)*30*p}px)`}
+    // words
+    const ws=[...el.querySelectorAll('.w')]; ws.forEach((w,i)=>{const k=ease(clamp((t-a-0.45-i*0.12)/0.45,0,1));w.style.opacity=k;w.style.transform=`translateY(${(1-k)*40}px)`;w.style.filter=`blur(${(1-k)*8}px)`});
+    const bar=el.querySelector('.bar'); if(bar){const k=ease(clamp((t-a-0.45-ws.length*0.12)/0.6,0,1));bar.style.transform=`scaleX(${k})`}
+  });
+  document.getElementById('g1').style.transform=`translateY(${-t*14}px)`;
+  const p4=clamp((t-18.2)/0.5,0,1); document.getElementById('p4b').style.opacity=p4; document.getElementById('p4b').style.transform=`scale(${1.04+0.05*clamp((t-18.2)/3,0,1)})`;
+  document.getElementById('rays').style.transform=`rotate(${(t-21)*4}deg) scale(${1+0.08*clamp((t-21)/4,0,1)})`;
+  const lk=ease(clamp((t-25.5)/0.9,0,1)); const lg=document.getElementById('logo'); lg.style.opacity=lk; lg.style.transform=`scale(${0.85+0.15*lk})`;
+  ['u','ph'].forEach((id,i)=>{const k=ease(clamp((t-27-i*0.35)/0.5,0,1));const e=document.getElementById(id);e.style.opacity=k;e.style.transform=`translateY(${(1-k)*30}px)`});
+  document.getElementById('flash').style.opacity=Math.max(0,0.5-Math.abs(t-21)*2.5)*1;
+};
+</script></body></html>
